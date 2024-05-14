@@ -3,4 +3,4 @@ gnews
 newspaper3k
 rich
 zhipuai
-lxml
+lxml_html_clean
