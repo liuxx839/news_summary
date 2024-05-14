@@ -35,14 +35,20 @@ def extract_content(url: str) -> str:
 
 # 生成一段总结
 def generate_summary(text: str) -> str:
-    completion = client.chat.completions.create(
-        model="glm-4",
-        messages=[
-            {"role": "system", "content": "你是文字解读机器人，会根据提供的文字内容，用一段汉语进行精简总结"},
-            {"role": "user", "content": text}
-        ],
-    )
-    return completion.choices[0].message.content
+    try:
+        completion = client.chat.completions.create(
+            model="glm-4",
+            messages=[
+                {"role": "system", "content": "你是文字解读机器人，会根据提供的文字内容，用一段汉语进行精简总结"},
+                {"role": "user", "content": text}
+            ],
+        )
+        return completion.choices[0].message.content
+    except Exception as e:
+        logging.error(f"Error generating summary: {e}")
+        return "Error generating summary"
+
+
 
 # 从给定的字典列表中提取"url"字段，并将所有的url组合到一起
 def extract_urls(data: List[Dict[str, str]]) -> List[str]:
