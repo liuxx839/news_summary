@@ -10,7 +10,6 @@ import os
 
 # 初始化 ZhipuAI 客户端
 api_key = os.environ.get("ZHIPU_API_KEY")
-# api_key = '65597dabfc8a8220298b47f25bbd0c65.FUXaG8j5PeArCsRc'
 client = ZhipuAI(api_key=api_key)
 # 创建一个Rich Console对象用于美化输出
 console = Console()
