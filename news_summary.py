@@ -57,6 +57,8 @@ def extract_urls(data: List[Dict[str, str]]) -> List[str]:
 # 处理新闻项的内容抓取和总结生成
 def process_news_item(item: Dict) -> str:
     content = extract_content(item['url'])
+    if not content:  # 如果 content 为空
+        return 'Try something else or change the trace back period'
     return generate_summary(f"{item['title']} {content}")
 
 # 获取用户输入
