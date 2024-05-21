@@ -11,6 +11,9 @@ import re
 import logging
 import requests
 
+# 设置页面配置
+st.set_page_config(page_title="Info Summary", layout="centered")
+
 # 初始化 ZhipuAI 客户端
 api_key = os.environ.get("ZHIPU_API_KEY")
 client = ZhipuAI(api_key=api_key)
