@@ -93,7 +93,7 @@ def extract_content_from_jina(url: str) -> str:
 def generate_summary(text: str) -> str:
     try:
         completion = client.chat.completions.create(
-            model="glm-4",
+            model="glm-4-air",
             messages=[
                 {"role": "system", "content": "你是文字解读机器人，会根据提供的文字内容，用一段汉语进行精简总结"},
                 {"role": "user", "content": text}
